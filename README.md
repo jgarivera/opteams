@@ -1,6 +1,6 @@
 # To run development server, use:
 
-python run_dev.py 
+python runserver.py 
 
 This is a shortcut to: python manage.py runserver --settings=opteams.settings.dev
 
