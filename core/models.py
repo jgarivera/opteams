@@ -25,6 +25,8 @@ class Channel(models.Model):
             * uuid - universal unique identifier; provided ID by Teams
     """
     uuid = models.CharField(max_length=255, primary_key=True)
-    name = models.CharField(max_length=255)
     description = models.CharField(max_length=255)
     url = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
+    subject_name = models.CharField(max_length=255)
+    subject_code = models.CharField(max_length=255)
