@@ -16,12 +16,14 @@ class Assignment(models.Model):
             * date_posted - date when message was posted; provided by Teams
 
             * date_due - date when assignment is due
+            * channel - channel in which this assignment belongs to
     """
     title = models.CharField(max_length=255)
     subtitle = models.CharField(max_length=255)
     url = models.CharField(max_length=255)
     date_posted = models.DateTimeField('date posted')
     date_due = models.DateTimeField('date due')
+    channel = models.ForeignKey(Channel, on_delete=models.CASCADE)
 
     def is_past_due(self):
         now = timezone.now()
