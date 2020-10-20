@@ -1,5 +1,5 @@
 """
-    Class for defining views
+    Class for defining page views
 """
 from django.shortcuts import render
 
