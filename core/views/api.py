@@ -16,13 +16,14 @@ from ..models import Channel, ChannelKey, Assignment
 @csrf_exempt
 def assignment(request):
     """
-    Handle the POST request from a PowerAutomate assignment listener
+        Handle the POST request from a PowerAutomate assignment listener
     """
     if request.method == "POST":
+        # Parse request body as JSON
         body = json.loads(request.body)
 
+        # Attempt to retrieve key from request header
         try:
-            # Retrieve key from request header
             key = request.headers["Key"]
 
             # Retrieve available connector key from registry
@@ -46,6 +47,7 @@ def assignment(request):
             assign_obj = body["assignment"]
             subtitle = assign_obj["subtitle"]
 
+            # Attempt to parse date due
             try:
                 date_due = datetime.strptime(f"{subtitle} 2020", "Due %b %d %Y")
             except ValueError:
