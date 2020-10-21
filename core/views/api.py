@@ -3,10 +3,12 @@
 """
 from django.shortcuts import get_object_or_404, render
 from django.views.decorators.csrf import csrf_exempt
-from django.http import JsonResponse, HttpResponseNotFound
-
-from ..models import Channel
+from django.http import JsonResponse, HttpResponseBadRequest
+from datetime import datetime
 import json
+
+from ..models import Channel, ChannelKey, Assignment
+
 
 # Create your views here.
 
@@ -19,20 +21,50 @@ def assignment(request):
     if request.method == "POST":
         body = json.loads(request.body)
 
-        # Parse teams data object
-        team_obj = body["team"]
-        uuid = team_obj["uuid"]
-        name = team_obj["name"]
-        description = team_obj["description"]
-        url = team_obj["url"]
+        try:
+            # Retrieve key from request header
+            key = request.headers["Key"]
 
-        # Get or create channel if non-existent
-        channel = Channel.objects.get_or_create(pk=uuid, defaults={
-            "name": name,
-            "description": description,
-            "url": url
-        })
+            # Retrieve available connector key from registry
+            connector_key = get_object_or_404(ChannelKey, secret=key)
 
-        return JsonResponse({"channel": channel})
+            # Parse Teams data
+            teams_obj = body["team"]
 
-    return HttpResponseNotFound("Method not supported")
+            # Get or create channel if it is non-existent
+            channel = Channel.objects.get_or_create(
+                pk=teams_obj["uuid"],
+                defaults={
+                    "name": teams_obj["name"],
+                    "description": teams_obj["description"],
+                    "url": teams_obj["url"],
+                    "key": connector_key,
+                },
+            )
+
+            # Parse assignment data
+            assign_obj = body["assignment"]
+            subtitle = assign_obj["subtitle"]
+
+            try:
+                date_due = datetime.strptime(f"{subtitle} 2020", "Due %b %d %Y")
+            except ValueError:
+                return HttpResponseBadRequest("Date parsing error")
+
+            # Create assignment object
+            assignment = Assignment(
+                title=assign_obj["title"],
+                subtitle=subtitle,
+                url=assign_obj["url"],
+                date_posted=assign_obj["datePosted"],
+                date_due=date_due,
+            )
+            
+            # Save assignment
+            assignment.save()
+
+            return JsonResponse({"channel": assignment})
+        except KeyError:
+            return HttpResponseBadRequest("Key not found in registry")
+
+    return HttpResponseBadRequest("Method not supported")
