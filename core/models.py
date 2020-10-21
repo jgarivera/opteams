@@ -21,7 +21,13 @@ class ChannelKey(models.Model):
         return self.alias
 
     def is_taken(self):
-        return self.channel_set
+        has_channel = False
+        try:
+            has_channel = (self.channel is not None)
+        except Channel.DoesNotExist:
+            pass
+        return has_channel
+
 
 
 class Channel(models.Model):
