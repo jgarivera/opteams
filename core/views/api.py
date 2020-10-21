@@ -58,12 +58,13 @@ def assignment(request):
                 url=assign_obj["url"],
                 date_posted=assign_obj["datePosted"],
                 date_due=date_due,
+                channel=channel[0]
             )
             
             # Save assignment
             assignment.save()
 
-            return JsonResponse({"channel": assignment})
+            return JsonResponse({"success": True})
         except KeyError:
             return HttpResponseBadRequest("Key not found in registry")
 
