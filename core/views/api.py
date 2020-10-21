@@ -29,6 +29,10 @@ def assignment(request):
             # Retrieve available connector key from registry
             connector_key = get_object_or_404(ChannelKey, secret=key)
 
+            # Check if key is free
+            if connector_key.is_taken():
+                return HttpResponseBadRequest("Key is taken")
+
             # Parse Teams data
             teams_obj = body["team"]
 
