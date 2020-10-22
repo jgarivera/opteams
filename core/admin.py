@@ -2,7 +2,7 @@
     Class for configuring the admin dashboard
 """
 from django.contrib import admin
-from .models import Channel, ChannelProxy, ChannelKey, Assignment
+from .models import Channel, ChannelProxy, ChannelKey, Assignment, UserProfile
 
 
 class AssignmentAdmin(admin.ModelAdmin):
@@ -13,6 +13,10 @@ class AssignmentAdmin(admin.ModelAdmin):
     ]
     list_display = ("title", "channel")
 
+class TabularUserAdmin(admin.TabularInline):
+    model = UserProfile.subscriptions.through
+    verbose_name = "User Subscription"
+    verbose_name_plural = "User Subscriptions"
 
 class ChannelAdmin(admin.ModelAdmin):
 
@@ -20,6 +24,9 @@ class ChannelAdmin(admin.ModelAdmin):
     fieldsets = [
         ("Teams Data", {"fields": ["uuid", "name", "description", "url"]}),
         ("App Data", {"fields": ["subject_name", "subject_code", "key"]}),
+    ]
+    inlines = [
+        TabularUserAdmin
     ]
 
     # Define list display when viewing collectively

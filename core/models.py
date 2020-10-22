@@ -4,6 +4,8 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 # Create your models here.
 
@@ -24,11 +26,10 @@ class ChannelKey(models.Model):
     def is_taken(self):
         has_channel = False
         try:
-            has_channel = (self.channel is not None)
+            has_channel = self.channel is not None
         except Channel.DoesNotExist:
             pass
         return has_channel
-
 
 
 class Channel(models.Model):
@@ -42,7 +43,6 @@ class Channel(models.Model):
         * subject_name - subject name
         * subject_code - subject code
         * key - connector key object
-        * subscribers - list of subscribed users to this channel
     """
 
     uuid = models.CharField(max_length=255, primary_key=True)
@@ -52,14 +52,39 @@ class Channel(models.Model):
     subject_name = models.CharField(max_length=255)
     subject_code = models.CharField(max_length=255)
     key = models.OneToOneField(ChannelKey, on_delete=models.CASCADE)
-    subscribers = models.ManyToManyField(User)
 
     def __str__(self):
         return self.name
 
+
 class ChannelProxy(Channel):
     class Meta:
         proxy = True
+
+
+class UserProfile(models.Model):
+    """
+    User profile class
+        * user - user object reference
+        * subscriptions - list of channels user is subscribed to
+    """
+
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    subscriptions = models.ManyToManyField(Channel)
+
+    def __str__(self):
+        return self.user.username
+
+
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        UserProfile.objects.create(user=instance)
+
+
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, **kwargs):
+    instance.userprofile.save()
 
 
 class Assignment(models.Model):
