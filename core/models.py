@@ -3,6 +3,7 @@
 """
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -40,6 +41,8 @@ class Channel(models.Model):
 
         * subject_name - subject name
         * subject_code - subject code
+        * key - connector key object
+        * subscribers - list of subscribed users to this channel
     """
 
     uuid = models.CharField(max_length=255, primary_key=True)
@@ -49,10 +52,10 @@ class Channel(models.Model):
     subject_name = models.CharField(max_length=255)
     subject_code = models.CharField(max_length=255)
     key = models.OneToOneField(ChannelKey, on_delete=models.CASCADE)
+    subscribers = models.ManyToManyField(User)
 
     def __str__(self):
         return self.name
-
 
 class ChannelProxy(Channel):
     class Meta:

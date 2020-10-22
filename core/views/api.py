@@ -4,6 +4,8 @@
 from django.shortcuts import get_object_or_404, render
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse, HttpResponseBadRequest
+from django.db import IntegrityError
+
 from datetime import datetime
 import json
 
@@ -16,7 +18,7 @@ from ..models import Channel, ChannelKey, Assignment
 @csrf_exempt
 def assignment(request):
     """
-        Handle the POST request from a PowerAutomate assignment listener
+    Handle the POST request from a PowerAutomate assignment listener
     """
     if request.method == "POST":
         # Parse request body as JSON
@@ -26,26 +28,28 @@ def assignment(request):
         try:
             key = request.headers["Key"]
 
-            # Retrieve available connector key from registry
-            connector_key = get_object_or_404(ChannelKey, secret=key)
-
-            # Check if key is free
-            if connector_key.is_taken():
-                return HttpResponseBadRequest("Key is taken")
+            # Retrieve connector key from registry if available
+            try:
+                connector_key = ChannelKey.objects.get(secret=key)
+            except ChannelKey.DoesNotExist:
+                return HttpResponseBadRequest("Key not found")
 
             # Parse Teams data
             teams_obj = body["team"]
 
-            # Get or create channel if it is non-existent
-            channel = Channel.objects.get_or_create(
-                pk=teams_obj["uuid"],
-                defaults={
-                    "name": teams_obj["name"],
-                    "description": teams_obj["description"],
-                    "url": teams_obj["url"],
-                    "key": connector_key,
-                },
-            )
+            # Get or create channel if it is non-existent and key is free
+            try:
+                channel = Channel.objects.get_or_create(
+                    pk=teams_obj["uuid"],
+                    defaults={
+                        "name": teams_obj["name"],
+                        "description": teams_obj["description"],
+                        "url": teams_obj["url"],
+                        "key": connector_key,
+                    },
+                )
+            except IntegrityError:
+                return HttpResponseBadRequest("Key is taken")
 
             # Parse assignment data
             assign_obj = body["assignment"]
@@ -64,9 +68,9 @@ def assignment(request):
                 url=assign_obj["url"],
                 date_posted=assign_obj["datePosted"],
                 date_due=date_due,
-                channel=channel[0]
+                channel=channel[0],
             )
-            
+
             # Save assignment
             assignment.save()
 

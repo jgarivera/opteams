@@ -22,5 +22,6 @@ admin.site.site_title = 'OpTeams Admin'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('', include('core.urls')),
 ]
