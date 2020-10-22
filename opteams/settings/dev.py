@@ -22,6 +22,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '!70@_jt4j@fvo5s(7r7eg3lpn)za74xxza*80(cwy20yf5nf2v'
 
+STREAM_IO_KEY = 'rf8wrq6wzpkx'
+STREAM_IO_SECRET = 'h7ng2jm69ejpz6ywfey9arrn9gkm8a5g2xebh47cup8kp4bzuanwdvkcg37ra98u'
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
