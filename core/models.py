@@ -7,6 +7,9 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+from django.conf import settings
+import stream
+
 # Create your models here.
 
 
@@ -62,31 +65,6 @@ class ChannelProxy(Channel):
         proxy = True
 
 
-class UserProfile(models.Model):
-    """
-    User profile class
-        * user - user object reference
-        * subscriptions - list of channels user is subscribed to
-    """
-
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    subscriptions = models.ManyToManyField(Channel)
-
-    def __str__(self):
-        return self.user.username
-
-
-@receiver(post_save, sender=User)
-def create_user_profile(sender, instance, created, **kwargs):
-    if created:
-        UserProfile.objects.create(user=instance)
-
-
-@receiver(post_save, sender=User)
-def save_user_profile(sender, instance, **kwargs):
-    instance.userprofile.save()
-
-
 class Assignment(models.Model):
     """
     Assignment model class
@@ -112,3 +90,52 @@ class Assignment(models.Model):
 
     def __str__(self):
         return self.title
+
+
+@receiver(post_save, sender=Assignment)
+def notify_assignment(sender, instance, created, **kwargs):
+    if created:
+        # Create stream client
+        client = stream.connect(settings.STREAM_IO_KEY, settings.STREAM_IO_SECRET)
+
+        # Retrieve all profiles
+        channel = instance.channel
+        profiles = channel.userprofile_set.all()
+
+        # Send notification to every subscriber
+        for p in profiles:
+            username = p.user.username
+            feed = client.feed("notification", username)
+            feed.add_activity(
+                {
+                    "actor": channel.name,
+                    "verb": "add",
+                    "object": f"{instance.title};{instance.subtitle}",
+                    "foreign_id": instance.id
+                }
+            )
+
+
+class UserProfile(models.Model):
+    """
+    User profile class
+        * user - user object reference
+        * subscriptions - list of channels user is subscribed to
+    """
+
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    subscriptions = models.ManyToManyField(Channel)
+
+    def __str__(self):
+        return self.user.username
+
+
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        UserProfile.objects.create(user=instance)
+
+
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, **kwargs):
+    instance.userprofile.save()

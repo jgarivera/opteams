@@ -5,11 +5,9 @@ from django.shortcuts import get_object_or_404, render
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse, HttpResponseBadRequest
 from django.db import IntegrityError
-from django.conf import settings
 
 from datetime import datetime
 import json
-import stream
 
 from ..models import Channel, ChannelKey, Assignment
 
@@ -75,8 +73,6 @@ def assignment(request):
 
             # Save assignment
             assignment.save()
-            
-            # TODO: create notifications
 
             return JsonResponse({"success": True})
         except KeyError:
