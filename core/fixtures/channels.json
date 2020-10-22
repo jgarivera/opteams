@@ -1,0 +1,61 @@
+[{
+        "model": "core.channel",
+        "pk": "abc",
+        "fields": {
+            "name": "COMPORG - SS191",
+            "description": "Computer Organization and Architecture: An Information Technology Approach SS191",
+            "url": "https://teams.microsoft.com/l/team/19%3a1b9a808d58c842b6ab14648c72c25ccf%40thread.tacv2/conversations?groupId=7ca85d89-fb8a-4761-a8cc-684e4ab527b9&tenantId=aeb745e6-8166-4f8f-9233-179e8109c49e",
+            "subject_name": "Computer Organization",
+            "subject_code": "COMPORG",
+            "key": 1
+        }
+    },
+    {
+        "model": "core.channel",
+        "pk": "def",
+        "fields": {
+            "name": "2020-2021 1st Term DATAMA1 SS191 and SF191/NS191",
+            "description": "Day Time Room Type Room 1 Wednesday 07:30AM - 09:30AM Computer Lab 314 314 2 Saturday 07:30AM - 09:30AM Computer Lab 314 314",
+            "url": "https://teams.microsoft.com/l/team/19%3aeff3868ea5364d39b377dfcb61dcfc65%40thread.tacv2/conversations?groupId=9dd04fa6-f83e-4cad-9150-ce87d9a05bf5&tenantId=aeb745e6-8166-4f8f-9233-179e8109c49e",
+            "subject_name": "Data Management 1",
+            "subject_code": "DATAMA1",
+            "key": 2
+        }
+    },
+    {
+        "model": "core.channel",
+        "pk": "ghi",
+        "fields": {
+            "name": "SS191/SF191/NS191 DISCRET-Discrete Mathematics",
+            "description": "SS191/SF191/NS191 DISCRET-Discrete Mathematics",
+            "url": "https://teams.microsoft.com/l/team/19%3a56651683091e4955bf8d9f62497017f8%40thread.tacv2/conversations?groupId=8a82e584-8a8f-4ea5-9be4-4e2198779c3b&tenantId=aeb745e6-8166-4f8f-9233-179e8109c49e",
+            "subject_name": "Discrete Mathematics",
+            "subject_code": "DISCRET",
+            "key": 3
+        }
+    },
+    {
+        "model": "core.channel",
+        "pk": "jkl",
+        "fields": {
+            "name": "2020T1 - USERDES - SS191",
+            "description": "Every Saturday at 1:00 PM to 5:00 PM. Faculty: Ms. Jen Arroyo",
+            "url": "https://teams.microsoft.com/l/team/19%3a9f626f78f79d401eaa57a15b93f3b457%40thread.tacv2/conversations?groupId=d5a9eae5-151b-48b8-a45f-47c72d9cab40&tenantId=aeb745e6-8166-4f8f-9233-179e8109c49e",
+            "subject_name": "User Experience Design",
+            "subject_code": "USERDES",
+            "key": 4
+        }
+    },
+    {
+        "model": "core.channel",
+        "pk": "lmn",
+        "fields": {
+            "name": "QUAMET1 SS191/SF191/MS191 1TSY2020-2021",
+            "description": "Tuesday Friday 9:30 - 11:30",
+            "url": "https://teams.microsoft.com/l/team/19%3ac0f3ee6eb06145c5ad65606616dd275e%40thread.tacv2/conversations?groupId=3b071bbd-b6b6-4d65-bf86-a519a45bd155&tenantId=aeb745e6-8166-4f8f-9233-179e8109c49e",
+            "subject_name": "Quantitative Methods 1",
+            "subject_code": "QUAMET1",
+            "key": 5
+        }
+    }
+]

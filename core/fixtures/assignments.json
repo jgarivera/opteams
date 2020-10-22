@@ -1,0 +1,14 @@
+[
+    {
+        "model": "core.assignment",
+        "pk": 1,
+        "fields": {
+            "title": "Online Assignment #1",
+            "subtitle": "Due Oct 19",
+            "url": "https://teams.microsoft.com/l/message/19%3A7176b4a395af4f569ba5855afb73305a%40thread.tacv2/1602476517437?groupId=4b153bbd-791c-47e1-b10b-bea267de2a48&tenantId=aeb745e6-8166-4f8f-9233-179e8109c49e&createdTime=1602476517437&parentMessageId=1602476517437",
+            "date_posted": "2020-10-12T04:21:57.437Z",
+            "date_due": "2020-10-18T16:00:00Z",
+            "channel": "4b153bbd-791c-47e1-b10b-bea267de2a47"
+        }
+    }
+]

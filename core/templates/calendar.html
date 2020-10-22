@@ -29,11 +29,15 @@
                 selectable: false,
                 businessHours: true,
                 dayMaxEvents: true, // allow "more" link when too many events
-                events: [{
-                    title: 'All Day Event',
-                    url: 'http://google.com/',
-                    start: '2020-09-01'
-                }]
+                events: [
+                    {% for a in assignments %}
+                        {
+                            title: "{{ a.title }}",
+                            url: "{{ a.url }}",
+                            start: '{{ a.date_due | date:"Y-m-d"}}'
+                        },
+                    {% endfor %}
+                ]
             });
 
             calendar.render();
