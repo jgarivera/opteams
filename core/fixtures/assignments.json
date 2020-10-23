@@ -1,14 +1,185 @@
-[
-    {
+[{
         "model": "core.assignment",
         "pk": 1,
         "fields": {
-            "title": "Online Assignment #1",
+            "title": "System Concepts Assignment",
             "subtitle": "Due Oct 19",
             "url": "https://teams.microsoft.com/l/message/19%3A7176b4a395af4f569ba5855afb73305a%40thread.tacv2/1602476517437?groupId=4b153bbd-791c-47e1-b10b-bea267de2a48&tenantId=aeb745e6-8166-4f8f-9233-179e8109c49e&createdTime=1602476517437&parentMessageId=1602476517437",
             "date_posted": "2020-10-12T04:21:57.437Z",
             "date_due": "2020-10-18T16:00:00Z",
-            "channel": "4b153bbd-791c-47e1-b10b-bea267de2a47"
+            "channel": "abc"
+        }
+    },
+    {
+        "model": "core.assignment",
+        "pk": 2,
+        "fields": {
+            "title": "x86 Architecture Paper",
+            "subtitle": "Due Oct 21",
+            "url": "https://teams.microsoft.com/l/message/19%3A7176b4a395af4f569ba5855afb73305a%40thread.tacv2/1602476517437?groupId=4b153bbd-791c-47e1-b10b-bea267de2a48&tenantId=aeb745e6-8166-4f8f-9233-179e8109c49e&createdTime=1602476517437&parentMessageId=1602476517437",
+            "date_posted": "2020-10-17T04:21:57.437Z",
+            "date_due": "2020-10-20T16:00:00Z",
+            "channel": "abc"
+        }
+    },
+    {
+        "model": "core.assignment",
+        "pk": 3,
+        "fields": {
+            "title": "CPU and Memory Enhancements Assignment",
+            "subtitle": "Due Oct 28",
+            "url": "https://teams.microsoft.com/l/message/19%3A7176b4a395af4f569ba5855afb73305a%40thread.tacv2/1602476517437?groupId=4b153bbd-791c-47e1-b10b-bea267de2a48&tenantId=aeb745e6-8166-4f8f-9233-179e8109c49e&createdTime=1602476517437&parentMessageId=1602476517437",
+            "date_posted": "2020-10-25T04:21:57.437Z",
+            "date_due": "2020-10-27T16:00:00Z",
+            "channel": "abc"
+        }
+    },
+
+    {
+        "model": "core.assignment",
+        "pk": 4,
+        "fields": {
+            "title": "Learning Log",
+            "subtitle": "Due Oct 10",
+            "url": "https://teams.microsoft.com/l/message/19%3A7176b4a395af4f569ba5855afb73305a%40thread.tacv2/1602476517437?groupId=4b153bbd-791c-47e1-b10b-bea267de2a48&tenantId=aeb745e6-8166-4f8f-9233-179e8109c49e&createdTime=1602476517437&parentMessageId=1602476517437",
+            "date_posted": "2020-10-08T04:21:57.437Z",
+            "date_due": "2020-10-09T16:00:00Z",
+            "channel": "def"
+        }
+    },
+    {
+        "model": "core.assignment",
+        "pk": 5,
+        "fields": {
+            "title": "Quizlet",
+            "subtitle": "Due Oct 12",
+            "url": "https://teams.microsoft.com/l/message/19%3A7176b4a395af4f569ba5855afb73305a%40thread.tacv2/1602476517437?groupId=4b153bbd-791c-47e1-b10b-bea267de2a48&tenantId=aeb745e6-8166-4f8f-9233-179e8109c49e&createdTime=1602476517437&parentMessageId=1602476517437",
+            "date_posted": "2020-10-10T04:21:57.437Z",
+            "date_due": "2020-10-11T16:00:00Z",
+            "channel": "def"
+        }
+    },
+    {
+        "model": "core.assignment",
+        "pk": 6,
+        "fields": {
+            "title": "Group Assessment Activity",
+            "subtitle": "Due Oct 15",
+            "url": "https://teams.microsoft.com/l/message/19%3A7176b4a395af4f569ba5855afb73305a%40thread.tacv2/1602476517437?groupId=4b153bbd-791c-47e1-b10b-bea267de2a48&tenantId=aeb745e6-8166-4f8f-9233-179e8109c49e&createdTime=1602476517437&parentMessageId=1602476517437",
+            "date_posted": "2020-10-13T04:21:57.437Z",
+            "date_due": "2020-10-14T16:00:00Z",
+            "channel": "def"
+        }
+    },
+    
+    {
+        "model": "core.assignment",
+        "pk": 7,
+        "fields": {
+            "title": "Activity 3",
+            "subtitle": "Due Oct 12",
+            "url": "https://teams.microsoft.com/l/message/19%3A7176b4a395af4f569ba5855afb73305a%40thread.tacv2/1602476517437?groupId=4b153bbd-791c-47e1-b10b-bea267de2a48&tenantId=aeb745e6-8166-4f8f-9233-179e8109c49e&createdTime=1602476517437&parentMessageId=1602476517437",
+            "date_posted": "2020-10-10T04:21:57.437Z",
+            "date_due": "2020-10-11T16:00:00Z",
+            "channel": "ghi"
+        }
+    },
+    {
+        "model": "core.assignment",
+        "pk": 8,
+        "fields": {
+            "title": "Activity 4",
+            "subtitle": "Due Oct 16",
+            "url": "https://teams.microsoft.com/l/message/19%3A7176b4a395af4f569ba5855afb73305a%40thread.tacv2/1602476517437?groupId=4b153bbd-791c-47e1-b10b-bea267de2a48&tenantId=aeb745e6-8166-4f8f-9233-179e8109c49e&createdTime=1602476517437&parentMessageId=1602476517437",
+            "date_posted": "2020-10-13T04:21:57.437Z",
+            "date_due": "2020-10-15T16:00:00Z",
+            "channel": "ghi"
+        }
+    },
+    {
+        "model": "core.assignment",
+        "pk": 9,
+        "fields": {
+            "title": "Activity 5",
+            "subtitle": "Due Oct 30",
+            "url": "https://teams.microsoft.com/l/message/19%3A7176b4a395af4f569ba5855afb73305a%40thread.tacv2/1602476517437?groupId=4b153bbd-791c-47e1-b10b-bea267de2a48&tenantId=aeb745e6-8166-4f8f-9233-179e8109c49e&createdTime=1602476517437&parentMessageId=1602476517437",
+            "date_posted": "2020-10-26T04:21:57.437Z",
+            "date_due": "2020-10-29T16:00:00Z",
+            "channel": "ghi"
+        }
+    },
+
+    {
+        "model": "core.assignment",
+        "pk": 10,
+        "fields": {
+            "title": "A3: Prototype",
+            "subtitle": "Due Oct 17",
+            "url": "https://teams.microsoft.com/l/message/19%3A7176b4a395af4f569ba5855afb73305a%40thread.tacv2/1602476517437?groupId=4b153bbd-791c-47e1-b10b-bea267de2a48&tenantId=aeb745e6-8166-4f8f-9233-179e8109c49e&createdTime=1602476517437&parentMessageId=1602476517437",
+            "date_posted": "2020-10-13T04:21:57.437Z",
+            "date_due": "2020-10-16T16:00:00Z",
+            "channel": "jkl"
+        }
+    },
+    {
+        "model": "core.assignment",
+        "pk": 11,
+        "fields": {
+            "title": "G3: What is Prototyping?",
+            "subtitle": "Due Oct 17",
+            "url": "https://teams.microsoft.com/l/message/19%3A7176b4a395af4f569ba5855afb73305a%40thread.tacv2/1602476517437?groupId=4b153bbd-791c-47e1-b10b-bea267de2a48&tenantId=aeb745e6-8166-4f8f-9233-179e8109c49e&createdTime=1602476517437&parentMessageId=1602476517437",
+            "date_posted": "2020-10-13T04:21:57.437Z",
+            "date_due": "2020-10-16T16:00:00Z",
+            "channel": "jkl"
+        }
+    },
+    {
+        "model": "core.assignment",
+        "pk": 12,
+        "fields": {
+            "title": "R3: Need Finding",
+            "subtitle": "Due Oct 19",
+            "url": "https://teams.microsoft.com/l/message/19%3A7176b4a395af4f569ba5855afb73305a%40thread.tacv2/1602476517437?groupId=4b153bbd-791c-47e1-b10b-bea267de2a48&tenantId=aeb745e6-8166-4f8f-9233-179e8109c49e&createdTime=1602476517437&parentMessageId=1602476517437",
+            "date_posted": "2020-10-17T04:21:57.437Z",
+            "date_due": "2020-10-18T16:00:00Z",
+            "channel": "jkl"
+        }
+    },
+
+    {
+        "model": "core.assignment",
+        "pk": 13,
+        "fields": {
+            "title": "Assignment 3",
+            "subtitle": "Due Oct 6",
+            "url": "https://teams.microsoft.com/l/message/19%3A7176b4a395af4f569ba5855afb73305a%40thread.tacv2/1602476517437?groupId=4b153bbd-791c-47e1-b10b-bea267de2a48&tenantId=aeb745e6-8166-4f8f-9233-179e8109c49e&createdTime=1602476517437&parentMessageId=1602476517437",
+            "date_posted": "2020-10-04T04:21:57.437Z",
+            "date_due": "2020-10-05T16:00:00Z",
+            "channel": "mno"
+        }
+    },
+    {
+        "model": "core.assignment",
+        "pk": 13,
+        "fields": {
+            "title": "Quiz",
+            "subtitle": "Due Oct 13",
+            "url": "https://teams.microsoft.com/l/message/19%3A7176b4a395af4f569ba5855afb73305a%40thread.tacv2/1602476517437?groupId=4b153bbd-791c-47e1-b10b-bea267de2a48&tenantId=aeb745e6-8166-4f8f-9233-179e8109c49e&createdTime=1602476517437&parentMessageId=1602476517437",
+            "date_posted": "2020-10-10T04:21:57.437Z",
+            "date_due": "2020-10-12T16:00:00Z",
+            "channel": "mno"
+        }
+    },
+    {
+        "model": "core.assignment",
+        "pk": 13,
+        "fields": {
+            "title": "Assignment 4",
+            "subtitle": "Due Oct 19",
+            "url": "https://teams.microsoft.com/l/message/19%3A7176b4a395af4f569ba5855afb73305a%40thread.tacv2/1602476517437?groupId=4b153bbd-791c-47e1-b10b-bea267de2a48&tenantId=aeb745e6-8166-4f8f-9233-179e8109c49e&createdTime=1602476517437&parentMessageId=1602476517437",
+            "date_posted": "2020-10-17T04:21:57.437Z",
+            "date_due": "2020-10-18T16:00:00Z",
+            "channel": "mno"
         }
     }
 ]

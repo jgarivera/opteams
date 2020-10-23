@@ -48,7 +48,7 @@
     },
     {
         "model": "core.channel",
-        "pk": "lmn",
+        "pk": "mno",
         "fields": {
             "name": "QUAMET1 SS191/SF191/MS191 1TSY2020-2021",
             "description": "Tuesday Friday 9:30 - 11:30",
