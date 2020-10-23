@@ -2,9 +2,13 @@ from django.db import models
 
 
 class AssignmentManager(models.Manager):
-    def in_date_order(self, *args, **kwargs):
+
+    def in_date_due_order(self, *args, **kwargs):
+        # Return query set based on filters
         qs = self.all().filter(*args, **kwargs)
+        # Evaluate query set as list
         qsl = list(qs)
+        # Perform merge sort
         self.merge_sort(qsl)
         return qsl
 

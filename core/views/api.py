@@ -57,7 +57,8 @@ def assignment(request):
 
             # Attempt to parse date due
             try:
-                date_due = datetime.strptime(f"{subtitle} 2020", "Due %b %d %Y")
+                year = datetime.now().strftime("%Y")
+                date_due = datetime.strptime(f"{subtitle} {year}", "Due %b %d %Y")
             except ValueError:
                 return HttpResponseBadRequest("Date parsing error")
 
