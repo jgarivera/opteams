@@ -1,4 +1,5 @@
-# To run development server, use:
+# Commands
+
 
 python runserver.py 
 
@@ -6,11 +7,18 @@ This is a shortcut to: python manage.py runserver --settings=opteams.settings.de
 
 # Creating a virtual env:
 
-pip install virtualenv
-virtualenv env
+The setup is now making use of virtual environments
+
+Install virtualenv: pip install virtualenv
+Create an env folder within opteams: virtualenv env
+
+After that, run virtual python:
+
 env\Scripts\activate.bat
 
-pip install ...
+(env) pip install -r requirements.txt
+
+This will install:
 * django
 * Whitenoise
 * Psycopg2
@@ -20,7 +28,4 @@ pip install ...
 * Static3
 * Gunicorn
 * django-heroku
-
-For Demi and Erika:
-
-pip install -r requirements.txt
+* stream-python
