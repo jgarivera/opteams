@@ -3,6 +3,7 @@
 The setup is now making use of virtual environments since we are going to deploy to Heroku
 
 Install virtualenv: `pip install virtualenv`
+
 Create an env folder within opteams: `virtualenv env`
 
 After that, run virtual python: `env\Scripts\activate.bat`
@@ -23,14 +24,16 @@ This will install:
 
 # Setting up the dummy environment
 
-Migrate the database: `python manage.py migrate --settings=opteams.settings.dev`
+While still inside the virtual environment,
 
-Create an admin account: `python manage.py createsuperuser --settings=opteams.settings.dev`
+Migrate the database: (env) `python manage.py migrate --settings=opteams.settings.dev`
 
-Fill database with dummy data (channels, keys, assignments): `python loaddummy.py`
+Create an admin account: (env) `python manage.py createsuperuser --settings=opteams.settings.dev`
+
+Fill database with dummy data (channels, keys, assignments): (env) `python loaddummy.py`
 
 # Run the server
 
-`python runserver.py`
+(env) `python runserver.py`
 
-This is a shortcut to: `python manage.py runserver --settings=opteams.settings.dev`
+This is a shortcut to: (env) `python manage.py runserver --settings=opteams.settings.dev`
