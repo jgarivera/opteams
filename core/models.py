@@ -8,6 +8,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 from django.conf import settings
+from .managers import AssignmentManager
 import stream
 
 # Create your models here.
@@ -56,6 +57,20 @@ class Channel(models.Model):
     subject_code = models.CharField(max_length=255)
     key = models.OneToOneField(ChannelKey, on_delete=models.CASCADE)
 
+    def get_short_name(self):
+        n = self.subject_name.split()
+        found = 0
+        for i in n:
+            f = i[0]
+            if f.isalpha() and f.isupper() and found == 0:
+                found = 1
+                first = i[0]
+            elif f.isalpha() and f.isupper() and found == 1:
+                found = 2
+                second = i[0]
+            if found == 2:
+                return first + second
+
     def __str__(self):
         return self.name
 
@@ -83,7 +98,8 @@ class Assignment(models.Model):
     date_posted = models.DateTimeField("date posted")
     date_due = models.DateTimeField("date due")
     channel = models.ForeignKey(Channel, on_delete=models.CASCADE)
-
+    objects = AssignmentManager()
+    
     def is_past_due(self):
         now = timezone.now()
         return now >= self.date_due
@@ -111,7 +127,7 @@ def notify_assignment(sender, instance, created, **kwargs):
                     "actor": channel.name,
                     "verb": "add",
                     "object": f"{instance.title};{instance.subtitle}",
-                    "foreign_id": instance.id
+                    "foreign_id": instance.id,
                 }
             )
 

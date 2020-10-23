@@ -32,7 +32,7 @@
                 events: [
                     {% for a in assignments %}
                         {
-                            title: "{{ a.title }}",
+                            title: "{{ a.channel.get_short_name }} {{ a.title }}",
                             url: "{{ a.url }}",
                             start: '{{ a.date_due | date:"Y-m-d"}}'
                         },
