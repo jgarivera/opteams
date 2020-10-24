@@ -4,12 +4,16 @@ from django.db import models
 class AssignmentManager(models.Manager):
 
     def in_date_due_order(self, *args, **kwargs):
+        """
+            Returns query set sorted by due date
+        """
         # Return query set based on filters
         qs = self.all().filter(*args, **kwargs)
         # Evaluate query set as list
         qsl = list(qs)
         # Perform merge sort
         self.merge_sort(qsl)
+
         return qsl
 
     def merge_sort(self, array):

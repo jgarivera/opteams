@@ -28,9 +28,12 @@ While still inside the virtual environment,
 
 Migrate the database: (env) `python manage.py migrate --settings=opteams.settings.dev`
 
-Create an admin account: (env) `python manage.py createsuperuser --settings=opteams.settings.dev`
+Fill database with dummy data (users, channels, keys, assignments): (env) `python loaddummy.py`
 
-Fill database with dummy data (channels, keys, assignments): (env) `python loaddummy.py`
+Login using admin account:
+
+* admin: user: `admin` password: `admin`
+* ss191: user: `ss191` password: `supersecret`
 
 # Run the server
 
