@@ -47,7 +47,7 @@
         "pk": 2,
         "fields": {
             "user": 2,
-            "subscriptions": []
+            "subscriptions": ["abc", "def", "ghi", "jkl", "mno"]
         }
     }
 ]
