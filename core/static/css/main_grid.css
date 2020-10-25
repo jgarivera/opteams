@@ -1,7 +1,76 @@
+.card-area {
+display: flex;
+justify-content: space-evenly;
+}
+
 .display-area .header .grid{
 background-color: #464775;
 }
 
-.display-area .header .grid a i, .display-area .header .grid a p{
+.display-area .header .grid a i, .display-area .header .grid a p {
 color: #fff;
+}
+
+.subject-cover {
+height: 195px;
+overflow: hidden;
+}
+
+.subject-cover:hover {
+height: 100%;
+}
+
+.display-area .cards{
+margin-top: 20px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+list-style: none;
+}
+
+.display-area .cards li {
+border-radius: 5px;
+  background-color: #fff;
+padding: 10px;
+  width: 150px;
+  height: 30px;
+line-spacing: 12px;
+margin: 2px;
+}
+
+.display-area .cards .subject{
+display: flex;
+  height: 150px;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.display-area .cards li a{
+text-decoration: none;
+}
+
+.display-area .cards .colored-shape {
+border-radius: 10px;
+background-color: #333;
+width: 50px;
+height: 50px;
+}
+
+.display-area .cards .subject .title {
+font-size: 24px;
+}
+
+.display-area .cards li a h1 {
+font-size: 14px;
+color: #333;
+}
+
+.display-area .cards li a span h1 {
+color: #464775;
+}
+
+.display-area .cards li:hover{
+box-shadow: 0px 10px 10px #aaa;
 }

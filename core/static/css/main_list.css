@@ -32,7 +32,7 @@ text-decoration: none;
 .display-area .cards li a .colored-shape {
 float: left;
 border-radius: 10px;
-background-color: #4ab8a7;
+background-color: #333;
 width: 50px;
 height: 50px;
 margin-right: 10px;

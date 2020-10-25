@@ -8,10 +8,10 @@ def index(request):
     """
         Render the index page
     """
-    return render(request, 'index.html')
+    return render(request, 'index.html',{})
 
 def main_list(request):
-    return render(request, 'main_list.html')
+    return render(request, 'main_list.html',{})
 
 def main_grid(request):
     return render(request, 'main_grid.html')
