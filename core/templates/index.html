@@ -1,3 +1,44 @@
-<p>
-<b>Hello, World!</b>
-</p>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+
+{% load static %}
+<link rel ="stylesheet" href = "{% static 'css/index.css' %}">
+
+<title>OpTeams</title>
+</head>
+<body>
+<div class="banner">
+<a href="/main_list">
+<img src="{% static 'images/logo.JPG' %}">
+</a>
+<h1> OpTeams </h1>
+<div class="navigation-bar">
+<ul>
+<li>
+<a href="/notifications"><i class="fas fa-bell"></i></a>
+<p>Notifications</p>
+</li>
+<li>
+<a href="/calendar"><i class="far fa-calendar-alt"></i></a>
+<p>Calendar</p>
+</li>
+<li>
+<a href="/task_list"><i class="fas fa-tasks"></i></a>
+<p>Task List</p>
+</li>
+<li>
+<a href="/settings"><i class="fas fa-cog"></i></a>
+<p>Settings</p>
+</li>
+<li>
+<a href="/add"><i class="fas fa-plus"></i></a>
+<p>Add Channel</p>
+</li>
+</ul>
+</body>
+</html>
+
