@@ -14,7 +14,7 @@ import stream
 @login_required
 def index(request):
     """
-    Render the index page
+    Render the index page - main_list
     """
 
     # Retrieve all assignments from user's channel subscriptions
@@ -28,7 +28,28 @@ def index(request):
 
 @login_required
 def main_grid(request):
-    context = {}
+    # Retrieve all assignments from user's channel subscriptions
+    profile = request.user.userprofile
+    subscribed_channels = profile.subscriptions.all()
+
+    channel_assignment_map = {}
+
+    for c in subscribed_channels:
+        assignments = Assignment.objects.in_date_due_order(channel=c)
+        channel_assignment_map[c] = assignments
+
+    channel_assignments = []
+    for key, value in channel_assignment_map.items():
+        ca = []
+        # Append channel object
+        ca.append(key)
+        # Append assignments
+        for v in value:
+            ca.append(v)
+        channel_assignments.append(ca)
+
+    print(channel_assignments)
+    context = {"channel_assignments": channel_assignments}
     return render(request, "index_grid.html", context)
 
 

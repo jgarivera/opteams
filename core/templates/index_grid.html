@@ -25,74 +25,34 @@
 
     <!-- Card area -->
     <div class="card-area">
-        <div class="subject-cover">
-            <ul class="cards">
-                <li class="subject">
-                    <div class="colored-shape">
-                    </div>
-                    <h1 class="title">DESALGO</h1>
-                    <p class="subtitle">Assignments count: 4</p>
-                    <p>button here</p>
-                </li>
-                <li>
-                    <a
-                        href="https://teams.microsoft.com/_#/apps/66aeee93-507d-479a-a3ef-8f494af43945/sections/classroom">
-                        <h1 class="title">Assignment#2</h1>
-                        <span>
-                            <h1>Due Oct 21 </h1>
-                        </span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        
-        <div class="subject-cover">
-            <ul class="cards">
-                <li class="subject">
-                    <div class="colored-shape">
-                    </div>
-                    <h1 class="title">DESALGO</h1>
-                    <p>Assignments count: 4</p>
-                    <p>button here</p>
-                </li>
-                <li>
-                    <a
-                        href="https://teams.microsoft.com/_#/apps/66aeee93-507d-479a-a3ef-8f494af43945/sections/classroom">
-                        <h1 class="title">Assignment#2</h1>
-                        <span>
-                            <h1>Due Oct 21 </h1>
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a
-                        href="https://teams.microsoft.com/_#/apps/66aeee93-507d-479a-a3ef-8f494af43945/sections/classroom">
-                        <h1 class="title">Assignment#2</h1>
-                        <span>
-                            <h1>Due Oct 21 </h1>
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a
-                        href="https://teams.microsoft.com/_#/apps/66aeee93-507d-479a-a3ef-8f494af43945/sections/classroom">
-                        <h1 class="title">Assignment#2</h1>
-                        <span>
-                            <h1>Due Oct 21 </h1>
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a
-                        href="https://teams.microsoft.com/_#/apps/66aeee93-507d-479a-a3ef-8f494af43945/sections/classroom">
-                        <h1 class="title">Assignment#2</h1>
-                        <span>
-                            <h1>Due Oct 21 </h1>
-                        </span>
-                    </a>
-                </li>
-            </ul>
-        </div>
+        {% for ca in channel_assignments%}
+            <div class="subject-cover">
+                <ul class="cards">
+                {% for entries in ca %}
+                    {% if forloop.first  %}
+                        <li class="subject">
+                            <div class="colored-shape">
+                            </div>
+                            <h1 class="title">{{ entries.subject_code }}</h1>
+                            <p class="subtitle">Assignments count: 4</p>
+                            <p>button here</p>
+                        </li>
+                    {% else %}
+                    <li>
+                        <a href="{{ entries.url }}">
+                            <h1 class="title">{{ entries.title }}</h1>
+                            <span>
+                                <h1>{{ entries.subtitle }}</h1>
+                            </span>
+                        </a>
+                    </li>
+                    {% endif %}
+                    
+                
+                {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}
