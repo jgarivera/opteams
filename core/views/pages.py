@@ -3,7 +3,7 @@
 """
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from django.conf import settings
+from django.conf import settings as conf_settings
 
 from ..models import Channel, Assignment
 import stream
@@ -27,9 +27,20 @@ def index(request):
 
 
 @login_required
+def main_list(request):
+    return render(request, "main_list.html", {})
+
+
+@login_required
+def main_grid(request):
+    context = {}
+    return render(request, "main_grid.html", context)
+
+
+@login_required
 def calendar(request):
     """
-    Render the calendar page
+    Render calendar page
     """
 
     # Retrieve all assignments from user's channel subscriptions
@@ -46,12 +57,22 @@ def notifications(request):
     """
     Render notifications page
     """
+
     # Create stream client
-    client = stream.connect(settings.STREAM_IO_KEY, settings.STREAM_IO_SECRET)
+    client = stream.connect(conf_settings.STREAM_IO_KEY, conf_settings.STREAM_IO_SECRET)
 
     # Retrieve notifications
     notifications = client.feed("notification", request.user.username)
     activities = notifications.get(limit=10)["results"][0]["activities"]
-    
+
     context = {"activities": activities}
     return render(request, "notifications.html", context)
+
+
+@login_required
+def settings(request):
+    """
+    Render settings page
+    """
+    context = {}
+    return render(request, "settings.html", context)

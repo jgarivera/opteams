@@ -1,0 +1,11 @@
+<p>
+<b>Hello, World!</b>
+</p>
+
+<ul>
+
+{% for a in assignments %}
+    <li> Channel: {{ a.channel }}, Title: {{ a.title }} - {{ a.subtitle }}</li>
+{% endfor %}
+
+</ul>
