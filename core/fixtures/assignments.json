@@ -160,7 +160,7 @@
     },
     {
         "model": "core.assignment",
-        "pk": 13,
+        "pk": 14,
         "fields": {
             "title": "Quiz",
             "subtitle": "Due Oct 13",
@@ -172,7 +172,7 @@
     },
     {
         "model": "core.assignment",
-        "pk": 13,
+        "pk": 15,
         "fields": {
             "title": "Assignment 4",
             "subtitle": "Due Oct 19",

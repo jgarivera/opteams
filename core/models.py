@@ -71,6 +71,9 @@ class Channel(models.Model):
             if found == 2:
                 return first + second
 
+    def get_assignment_count(self):
+        return Assignment.objects.filter(channel=self.uuid).count()
+
     def __str__(self):
         return self.name
 
@@ -99,7 +102,7 @@ class Assignment(models.Model):
     date_due = models.DateTimeField("date due")
     channel = models.ForeignKey(Channel, on_delete=models.CASCADE)
     objects = AssignmentManager()
-    
+
     def is_past_due(self):
         now = timezone.now()
         return now >= self.date_due
