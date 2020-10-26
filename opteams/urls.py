@@ -16,7 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+admin.site.site_header = 'OpTeams Admin'
+admin.site.index_title = 'Dashboard'
+admin.site.site_title = 'OpTeams Admin'
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('', include('core.urls')),
 ]

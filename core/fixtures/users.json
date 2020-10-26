@@ -1,0 +1,53 @@
+[{
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$216000$mJAxQ2iMMbu8$vq37UB1yUPcs5SOfLfXjVsAlNFkgeiGgJghh7NBiSSM=",
+            "last_login": null,
+            "is_superuser": true,
+            "username": "admin",
+            "first_name": "",
+            "last_name": "",
+            "email": "",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2020-10-24T02:00:32.340Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "core.userprofile",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "subscriptions": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 2,
+        "fields": {
+            "password": "pbkdf2_sha256$216000$UhUFMjbBiisi$+leXbliNJe218k5JO49tNaueURwUiWOevvtM5ddf1WQ=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "ss191",
+            "first_name": "",
+            "last_name": "",
+            "email": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2020-10-24T02:06:49.422Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "core.userprofile",
+        "pk": 2,
+        "fields": {
+            "user": 2,
+            "subscriptions": ["abc", "def", "ghi", "jkl", "mno"]
+        }
+    }
+]

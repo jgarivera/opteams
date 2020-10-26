@@ -1,0 +1,39 @@
+[{
+        "model": "core.channelkey",
+        "pk": 1,
+        "fields": {
+            "secret": "comporgsecret",
+            "alias": "secret key for COMPORG"
+        }
+    }, {
+        "model": "core.channelkey",
+        "pk": 2,
+        "fields": {
+            "secret": "datama1secret",
+            "alias": "secret key for DATAMA1"
+        }
+    }, {
+        "model": "core.channelkey",
+        "pk": 3,
+        "fields": {
+            "secret": "discretsecret",
+            "alias": "secret key for DISCRET"
+        }
+    },
+    {
+        "model": "core.channelkey",
+        "pk": 4,
+        "fields": {
+            "secret": "userdessecret",
+            "alias": "secret key for USERDES"
+        }
+    },
+    {
+        "model": "core.channelkey",
+        "pk": 5,
+        "fields": {
+            "secret": "quamet1secret",
+            "alias": "secret key for QUAMET1"
+        }
+    }
+]

@@ -1,0 +1,28 @@
+{% load static %}
+
+<div class="banner">
+    <a href="/">
+        <img src="{% static 'images/logo.JPG' %}">
+    </a>
+    <h1 class="banner-title"> OpTeams </h1>
+    <div class="navigation-bar">
+        <ul class="navigation-list">
+            <li class="navigation-element">
+                <a href="/notifications"><i class="fas fa-bell"></i></a>
+                <p>Notifications</p>
+            </li>
+            <li class="navigation-element">
+                <a href="/calendar"><i class="far fa-calendar-alt"></i></a>
+                <p>Calendar</p>
+            </li>
+            <li class="navigation-element">
+                <a href="/settings"><i class="fas fa-cog"></i></a>
+                <p>Settings</p>
+            </li>
+            <li class="navigation-element">
+                <a href="/add"><i class="fas fa-plus"></i></a>
+                <p>Add Channel</p>
+            </li>
+        </ul>
+    </div>
+</div>

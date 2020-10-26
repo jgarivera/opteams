@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link href="{% static 'calendar/main.min.css' %}" rel='stylesheet' />
+<script src="{% static 'calendar/main.min.js' %}"></script>
+
+
+<style>
+    .card {
+        background-color: #ffffff;
+        padding: 4em;
+        border-radius: 12px;
+        margin: 0 auto;
+    }
+    #calendar {
+        max-width: 1200px;
+        margin: auto;
+        left: 50%;
+        top: 50%;
+    }
+</style>
+
+{% endblock %}
+
+{% block body %}
+
+<div class="card">
+    <div id="calendar"></div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var calendarEl = document.getElementById('calendar');
+
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            editable: false,
+            selectable: false,
+            businessHours: true,
+            dayMaxEvents: true, // allow "more" link when too many events
+            events: [
+                {% for a in assignments %}
+                    {
+                        title: "{{ a.channel.get_short_name }} {{ a.title }}",
+                        url: "{{ a.url }}",
+                        start: '{{ a.date_due | date:"Y-m-d"}}'
+                    },
+                {% endfor %}
+            ]
+        });
+
+        calendar.render();
+    });
+</script>
+{% endblock %}

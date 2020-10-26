@@ -1,0 +1,1 @@
+web: gunicorn opteams.wsgi --log-file -

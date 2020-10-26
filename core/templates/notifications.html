@@ -1,0 +1,5 @@
+<p> Notifications </p>
+{% load filter_tags %}
+{% for a in activities %}
+<li>{{ a.actor }} {{ a.object|split:";"|first  }} - {{ a.object|split:";"|last  }} </li>
+{% endfor %}

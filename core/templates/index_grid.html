@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/main_general.css' %}">
+<link rel="stylesheet" href="{% static 'css/main_grid.css' %}">
+<title>OpTeams</title>
+{% endblock %}
+
+{% block body %}
+<div class="display-area">
+    <!-- View selection area -->
+    <ul class="header">
+        <li class="list"> <a href="/">
+                <i class="fas fa-list"></i>
+                <p>list view<p>
+            </a>
+        </li>
+        <li class="grid"> <a href="/main_grid">
+                <i class="fas fa-th-large"></i>
+                <p>grid view</p>
+            </a>
+        </li>
+    </ul>
+
+    <!-- Card area -->
+    <div class="card-area">
+        {% for ca in channel_assignments%}
+            <div class="subject-cover">
+                <ul class="cards">
+                    {% for entries in ca %}
+                        {% if forloop.first  %}
+                            <!-- Render channel subject card -->
+                            <li class="subject">
+                                <div class="colored-shape">
+                                </div>
+                                <h1 class="title">{{ entries.subject_code }}</h1>
+                                <p class="subtitle">Assignment count: {{ entries.get_assignment_count }}</p>
+                                <p>button here</p>
+                            </li>
+                        {% else %}
+                            <li class="assignment">
+                                <!-- Render associated assignments -->
+                                <a href="{{ entries.url }}">
+                                    <h1 class="title">{{ entries.title }}</h1>
+                                    <span>
+                                        <h1>{{ entries.subtitle }}</h1>
+                                    </span>
+                                </a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
