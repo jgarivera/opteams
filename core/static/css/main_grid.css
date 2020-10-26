@@ -63,6 +63,12 @@
   font-size: 24px;
 }
 
+.display-area .cards .assignment .title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .display-area .cards li a h1 {
   font-size: 14px;
   color: #333;
