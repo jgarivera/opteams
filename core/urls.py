@@ -8,7 +8,6 @@ from . import views
 urlpatterns = [
     # Page routes
     path("", views.pages.index, name="index"),
-    path("main_list", views.pages.main_list, name="main_list"),
     path("main_grid", views.pages.main_grid, name="main_grid"),
     path("calendar", views.pages.calendar, name="calendar"),
     path("notifications", views.pages.notifications, name="notifications"),

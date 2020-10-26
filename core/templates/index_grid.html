@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/main_general.css' %}">
+<link rel="stylesheet" href="{% static 'css/main_grid.css' %}">
+<title>OpTeams</title>
+{% endblock %}
+
+{% block body %}
+<div class="display-area">
+    <!-- View selection area -->
+    <ul class="header">
+        <li class="list"> <a href="/">
+                <i class="fas fa-list"></i>
+                <p>list view<p>
+            </a>
+        </li>
+        <li class="grid"> <a href="/main_grid">
+                <i class="fas fa-th-large"></i>
+                <p>grid view</p>
+            </a>
+        </li>
+    </ul>
+
+    <!-- Card area -->
+    <div class="card-area">
+        <div class="subject-cover">
+            <ul class="cards">
+                <li class="subject">
+                    <div class="colored-shape">
+                    </div>
+                    <h1 class="title">DESALGO</h1>
+                    <p class="subtitle">Assignments count: 4</p>
+                    <p>button here</p>
+                </li>
+                <li>
+                    <a
+                        href="https://teams.microsoft.com/_#/apps/66aeee93-507d-479a-a3ef-8f494af43945/sections/classroom">
+                        <h1 class="title">Assignment#2</h1>
+                        <span>
+                            <h1>Due Oct 21 </h1>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="subject-cover">
+            <ul class="cards">
+                <li class="subject">
+                    <div class="colored-shape">
+                    </div>
+                    <h1 class="title">DESALGO</h1>
+                    <p>Assignments count: 4</p>
+                    <p>button here</p>
+                </li>
+                <li>
+                    <a
+                        href="https://teams.microsoft.com/_#/apps/66aeee93-507d-479a-a3ef-8f494af43945/sections/classroom">
+                        <h1 class="title">Assignment#2</h1>
+                        <span>
+                            <h1>Due Oct 21 </h1>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="https://teams.microsoft.com/_#/apps/66aeee93-507d-479a-a3ef-8f494af43945/sections/classroom">
+                        <h1 class="title">Assignment#2</h1>
+                        <span>
+                            <h1>Due Oct 21 </h1>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="https://teams.microsoft.com/_#/apps/66aeee93-507d-479a-a3ef-8f494af43945/sections/classroom">
+                        <h1 class="title">Assignment#2</h1>
+                        <span>
+                            <h1>Due Oct 21 </h1>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="https://teams.microsoft.com/_#/apps/66aeee93-507d-479a-a3ef-8f494af43945/sections/classroom">
+                        <h1 class="title">Assignment#2</h1>
+                        <span>
+                            <h1>Due Oct 21 </h1>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -23,18 +23,13 @@ def index(request):
     assignments = Assignment.objects.in_date_due_order(channel__in=subscribed_channels)
 
     context = {"assignments": assignments}
-    return render(request, "index.html", context)
-
-
-@login_required
-def main_list(request):
-    return render(request, "main_list.html", {})
+    return render(request, "index_list.html", context)
 
 
 @login_required
 def main_grid(request):
     context = {}
-    return render(request, "main_grid.html", context)
+    return render(request, "index_grid.html", context)
 
 
 @login_required

@@ -7,16 +7,27 @@
 
 
 <style>
+    .card {
+        background-color: #ffffff;
+        padding: 4em;
+        border-radius: 12px;
+        margin: 0 auto;
+    }
     #calendar {
-        max-width: 1100px;
+        max-width: 1200px;
+        margin: auto;
+        left: 50%;
+        top: 50%;
     }
 </style>
 
 {% endblock %}
 
 {% block body %}
-<div id="calendar"></div>
 
+<div class="card">
+    <div id="calendar"></div>
+</div>
 {% endblock %}
 
 {% block scripts %}

@@ -2,6 +2,10 @@
     margin: 0px;
     padding: 0px;
     font-family: 'Lato', sans-serif;
+}
+
+.title,
+.subtitle {
     color: #464775;
 }
 
@@ -32,6 +36,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: #464775;
 }
 
 .display-area .header li a i {
