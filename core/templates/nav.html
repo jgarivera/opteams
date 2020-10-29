@@ -7,7 +7,7 @@
     <h1 class="banner-title"> OpTeams </h1>
     <div class="navigation-bar">
         <ul class="navigation-list">
-            <li class="navigation-element {% if request.path == '/'  %} active {% endif %}">
+            <li class="navigation-element {% if request.path == '/' or request.path == '/main_grid'  %} active {% endif %}">
                 <a href="/"><i class="fas fa-home"></i></a>
                 <p>Home</p>
             </li>

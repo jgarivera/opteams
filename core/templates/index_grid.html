@@ -4,10 +4,11 @@
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/main_general.css' %}">
 <link rel="stylesheet" href="{% static 'css/main_grid.css' %}">
-<title>OpTeams</title>
+<title>OpTeams - Home</title>
 {% endblock %}
 
 {% block body %}
+<h1>Home</h1><br>
 <div class="display-area">
     <!-- View selection area -->
     <ul class="header">
@@ -26,32 +27,32 @@
     <!-- Card area -->
     <div class="card-area">
         {% for ca in channel_assignments%}
-            <div class="subject-cover">
-                <ul class="cards">
-                    {% for entries in ca %}
-                        {% if forloop.first  %}
-                            <!-- Render channel subject card -->
-                            <li class="subject">
-                                <div class="colored-shape">
-                                </div>
-                                <h1 class="title">{{ entries.subject_code }}</h1>
-                                <p class="subtitle">Assignment count: {{ entries.get_assignment_count }}</p>
-                                <p>button here</p>
-                            </li>
-                        {% else %}
-                            <li class="assignment">
-                                <!-- Render associated assignments -->
-                                <a href="{{ entries.url }}">
-                                    <h1 class="title">{{ entries.title }}</h1>
-                                    <span>
-                                        <h1>{{ entries.subtitle }}</h1>
-                                    </span>
-                                </a>
-                            </li>
-                        {% endif %}
-                    {% endfor %}
-                </ul>
-            </div>
+        <div class="subject-cover">
+            <ul class="cards">
+                {% for entries in ca %}
+                {% if forloop.first  %}
+                <!-- Render channel subject card -->
+                <li class="subject">
+                    <div class="colored-shape">
+                        <span class="short">{{ entries.get_short_name }}</span>
+                    </div>
+                    <h1 class="title">{{ entries.subject_code }}</h1>
+                    <p class="subtitle">Assignment count: {{ entries.get_assignment_count }}</p>
+                </li>
+                {% else %}
+                <li class="assignment">
+                    <!-- Render associated assignments -->
+                    <a href="{{ entries.url }}">
+                        <h1 class="title">{{ entries.title }}</h1>
+                        <span>
+                            <h1>{{ entries.subtitle }}</h1>
+                        </span>
+                    </a>
+                </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
         {% endfor %}
     </div>
 </div>
