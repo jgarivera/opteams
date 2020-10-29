@@ -53,14 +53,25 @@
 }
 
 .display-area .cards .colored-shape {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 10px;
   background-color: #333;
   width: 50px;
   height: 50px;
 }
 
+.display-area .cards .colored-shape .short {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 22px;
+}
+
 .display-area .cards .subject .title {
   font-size: 24px;
+  margin-top: 0.25em;
+  margin-bottom: 0.5em;
 }
 
 .display-area .cards .assignment .title {

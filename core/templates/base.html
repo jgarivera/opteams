@@ -6,8 +6,9 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/index.css' %}">
 
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="icon" type="image/jpg" href="{% static 'images/logo.JPG' %}">
     <!-- Load page-specific header content -->
     {% block head %} {% endblock %}
 
@@ -23,4 +24,5 @@
 
 <!-- Load page-specific scripts -->
 {% block scripts %} {% endblock %}
+
 </html>

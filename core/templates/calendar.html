@@ -2,9 +2,10 @@
 {% load static %}
 
 {% block head %}
+
 <link href="{% static 'calendar/main.min.css' %}" rel='stylesheet' />
 <script src="{% static 'calendar/main.min.js' %}"></script>
-
+<title>OpTeams - Calendar</title>
 
 <style>
     .card {
@@ -24,6 +25,7 @@
 {% endblock %}
 
 {% block body %}
+<h1>Calendar</h1><br>
 
 <div class="card">
     <div id="calendar"></div>

@@ -75,8 +75,18 @@
     border-left: 5px solid #fff;
 }
 
+.navigation-bar ul .active {
+    background: radial-gradient(circle at center left, #bfbfbf, #333449);
+    opacity: 80%;
+    width: 95%;
+    overflow: hidden;
+    margin-left: 0px;
+    border-left: 5px solid #fff;
+}
+
 .navigation-element p {
     color: #ffffff;
+    user-select: none; /* Standard */
 }
 
 img {
