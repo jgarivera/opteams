@@ -7,21 +7,25 @@
     <h1 class="banner-title"> OpTeams </h1>
     <div class="navigation-bar">
         <ul class="navigation-list">
-            <li class="navigation-element">
+            <li class="navigation-element {% if request.path == '/'  %} active {% endif %}">
+                <a href="/"><i class="fas fa-home"></i></a>
+                <p>Home</p>
+            </li>
+            <li class="navigation-element {% if request.path == '/notifications'  %} active {% endif %}">
                 <a href="/notifications"><i class="fas fa-bell"></i></a>
                 <p>Notifications</p>
             </li>
-            <li class="navigation-element">
+            <li class="navigation-element {% if request.path == '/calendar'  %} active {% endif %}">
                 <a href="/calendar"><i class="far fa-calendar-alt"></i></a>
                 <p>Calendar</p>
             </li>
-            <li class="navigation-element">
+            <li class="navigation-element {% if request.path == '/settings'  %} active {% endif %}">
                 <a href="/settings"><i class="fas fa-cog"></i></a>
                 <p>Settings</p>
             </li>
             <li class="navigation-element">
-                <a href="/add"><i class="fas fa-plus"></i></a>
-                <p>Add Channel</p>
+                <a href="/accounts/logout"><i class="fas fa-sign-out-alt"></i></a>
+                <p>Logout</p>
             </li>
         </ul>
     </div>
