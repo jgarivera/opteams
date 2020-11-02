@@ -48,7 +48,6 @@ def main_grid(request):
             ca.append(v)
         channel_assignments.append(ca)
 
-    print(channel_assignments)
     context = {"channel_assignments": channel_assignments}
     return render(request, "index_grid.html", context)
 
