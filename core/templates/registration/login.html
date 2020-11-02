@@ -1,4 +1,7 @@
 <title>OpTeams - Login</title>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<link rel="icon" type="image/jpg" href="{% static 'images/logo.JPG' %}">
 
 {% if form.errors %}
 <p>Your username and password didn't match. Please try again.</p>
@@ -14,21 +17,28 @@
 {% endif %}
 
 <!-- Login form -->
-<form method="post" action="{% url 'login' %}">
-    <!-- Special token that prevents CSRF attacks -->
-    {% csrf_token %}
-    <table>
-        <tr>
-            <td>{{ form.username.label_tag }}</td>
-            <td>{{ form.username }}</td>
-        </tr>
-        <tr>
-            <td>{{ form.password.label_tag }}</td>
-            <td>{{ form.password }}</td>
-        </tr>
-    </table>
+<div class="container">
+    <h2>OpTeams Login</h2>
+    <form method="post" action="{% url 'login' %}">
+        <!-- Special token that prevents CSRF attacks -->
+        {% csrf_token %}
 
-    <!-- Form inputs -->
-    <input type="submit" value="login">
-    <input type="hidden" name="next" value="{{ next }}">
-</form>
+        <table>
+            <tr>
+                <td>{{ form.username.label_tag }}</td>
+                <td>{{ form.username }}</td>
+            </tr>
+            <tr class="spacer"></tr>
+            <tr>
+                <td>{{ form.password.label_tag }}</td>
+                <td>{{ form.password }}</td>
+            </tr>
+        </table>
+
+        <div class="buttons">
+            <!-- Form inputs -->
+            <input class="login-btn" type="submit" value="Login">
+            <input type="hidden" name="next" value="{{ next }}">
+        </div>
+    </form>
+</div>
