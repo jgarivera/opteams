@@ -1,2 +1,7 @@
-  <p>Logged out!</p>  
-  <a href="{% url 'login'%}">Click here to login again.</a>
+ <title>OpTeams - Logged out</title>
+ {% load static %}
+ <link rel="stylesheet" href="{% static 'css/login.css' %}">
+ <link rel="icon" type="image/jpg" href="{% static 'images/logo.JPG' %}">
+
+ <p>Logged out!</p>
+ <a href="{% url 'login'%}">Click here to login again.</a>
