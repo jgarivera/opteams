@@ -89,6 +89,11 @@
     user-select: none; /* Standard */
 }
 
+.disabled {
+    pointer-events: none;
+    opacity: 0.4;
+}
+
 img {
     height: 50px;
     width: 50px;
