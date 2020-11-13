@@ -25,9 +25,15 @@ class ChannelKey(models.Model):
     alias = models.CharField(max_length=255)
 
     def __str__(self):
+        """
+        Returns string representation
+        """
         return self.alias
 
     def is_taken(self):
+        """
+        Returns boolean whether this channel key is taken by a channel
+        """
         has_channel = False
         try:
             has_channel = self.channel is not None
@@ -58,6 +64,9 @@ class Channel(models.Model):
     key = models.OneToOneField(ChannelKey, on_delete=models.CASCADE)
 
     def get_short_name(self):
+        """
+        Returns shorthand name of a subject for subject tiles rendering
+        """
         n = self.subject_name.split()
         found = 0
         for i in n:
@@ -72,13 +81,24 @@ class Channel(models.Model):
                 return first + second
 
     def get_assignment_count(self):
+        """
+        Returns the number of assignments under this channel
+        """
         return Assignment.objects.filter(channel=self.uuid).count()
 
     def __str__(self):
+        """
+        Returns string representation
+        """
         return self.name
 
 
 class ChannelProxy(Channel):
+    """
+    Channel proxy class
+        - an exact copy of channel model
+    """
+
     class Meta:
         proxy = True
 
@@ -104,15 +124,25 @@ class Assignment(models.Model):
     objects = AssignmentManager()
 
     def is_past_due(self):
+        """
+        Returns boolean whether this assignment is past the due date
+        """
         now = timezone.now()
         return now >= self.date_due
 
     def __str__(self):
+        """
+        Returns string representation
+        """
         return self.title
 
 
 @receiver(post_save, sender=Assignment)
 def notify_assignment(sender, instance, created, **kwargs):
+    """
+    Receiver method that fires whenever an assignment is created.
+    Notifies each channel subscriber of newly created assignment
+    """
     if created:
         # Create stream client
         client = stream.connect(settings.STREAM_IO_KEY, settings.STREAM_IO_SECRET)
@@ -146,15 +176,26 @@ class UserProfile(models.Model):
     subscriptions = models.ManyToManyField(Channel)
 
     def __str__(self):
+        """
+        Returns string representation
+        """
         return self.user.username
 
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
+    """
+    Receiver method that fires whenever a user is created.
+    Creates a user profile for newly created user
+    """
     if created:
         UserProfile.objects.create(user=instance)
 
 
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
+    """
+    Receiver method that fires whenever a user is saved.
+    Saves user profile for saved user
+    """
     instance.userprofile.save()
