@@ -14,19 +14,7 @@ Create an env folder within opteams: `virtualenv env`
 After that, run virtual python: `env\Scripts\activate.bat` This will make you run in a virtual Python environment.
 All the next commands will be ran under the virtual environment.
 
-(env) `pip install -r requirements.txt`
-
-This will install:
-* django
-* Whitenoise
-* Psycopg2
-* Gitignore
-* Dj-database-url
-* Dj-static
-* Static3
-* Gunicorn
-* django-heroku
-* stream-python
+Install all required dependencies: (env) `pip install -r requirements.txt`
 
 ## Setting up the dummy environment
 
