@@ -1,5 +1,6 @@
 """
-    Class for conducting test cases. Not really needed
+    Class for conducting test cases.
+    Was not used for this project
 """
 from django.test import TestCase
 

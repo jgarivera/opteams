@@ -1,11 +1,13 @@
+"""
+    Class for defining the admin dashboard layout
+"""
 from django.db import models
 
 
 class AssignmentManager(models.Manager):
-
     def in_date_due_order(self, *args, **kwargs):
         """
-            Returns query set sorted by due date
+        Returns query set sorted by due date
         """
         # Return query set based on filters
         qs = self.all().filter(*args, **kwargs)
@@ -17,6 +19,9 @@ class AssignmentManager(models.Manager):
         return qsl
 
     def merge_sort(self, array):
+        """
+        Recursive implementation of merge sort; retrofitted for Assignment objects
+        """
         # Skip if array does not contain more than two elements
         if len(array) < 2:
             return
