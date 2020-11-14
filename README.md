@@ -1,6 +1,10 @@
 # OpTeams Code
 This is the code for the OpTeams application written in Python and Django
 
+## Key directories
+* `core` - folder where most internal OpTeams files reside
+* `opteams` - folder where Django setup configuration files reside
+
 ## Application dependencies
 * django
 * Whitenoise
