@@ -1,5 +1,5 @@
 # OpTeams Code
-This is the code for the OpTeams application written in Python and Django
+This is the code for the OpTeams application written in Python and Django. Developed by D.R. Caubang, E. Shiokawa, and J.G. Rivera
 
 ## Key directories
 * `core` - folder where most internal OpTeams files reside
